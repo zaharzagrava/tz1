@@ -1,24 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Route, Switch} from 'react-router-dom';
+
+import { Footer } from './components/Footer/Footer';
+
+import styles from'./App.module.scss';
+import Login from './containers/Login/Login';
+import UserInfoShort from './containers/UserInfoShort/UserInfoShort';
+import Albums from './containers/Albums/Albums';
+import Photos from './containers/Photos/Photos';
+import PhotosSlider from './containers/PhotosSlider/PhotosSlider';
+import TODOsSlider from './containers/TODOsSlider/TODOsSlider';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route exact path={["/"]}>
+          <Login />
+        </Route>
+        <Route exact path={["/main"]}>
+          <UserInfoShort />
+          <Albums />
+          <Photos />
+          <PhotosSlider />
+          <TODOsSlider />
+          <Footer />
+        </Route>
+      </Switch>
     </div>
   );
 }

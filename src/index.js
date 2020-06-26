@@ -1,13 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import {compose, applyMiddleware, createStore} from 'redux';
+import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
+import {BrowserRouter} from 'react-router-dom';
+
+import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import RootReducer from './redux/';
+
+// --- Setting up Redux Dev Tools
+const composeEnhancers =
+  typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+  ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ })
+  : compose;
+// --- Setting up Redux Dev Tools
+
+// --- Creating Store
+const store = createStore(RootReducer, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
