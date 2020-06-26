@@ -1,0 +1,13 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+.Albums {
+    position: absolute;
+    text-align: center;
+    left: 2%;
+    top: 10%;
+    width: 40%;
+    height: 80%;
+    background-color: #F5F7F7;
+    overflow-y: scroll;
+    font-size: 0.875rem;
+}

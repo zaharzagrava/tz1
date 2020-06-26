@@ -1,0 +1,23 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+.Photos {
+    position: absolute;
+    text-align: center;
+    right: 20%;
+    top: 10%;
+    width: 30%;
+    height: 80%;
+    background-color: #F5F7F7;
+    overflow-y: scroll;
+    font-size: 0.875rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+  
+.Photos > div > img {
+    width: 50px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}

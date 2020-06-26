@@ -1,0 +1,41 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+.PhotosSlider {
+    position: absolute;
+    text-align: center;
+    right: 20%;
+    top: 10%;
+    width: 60%;
+    height: 80%;
+    background-color: #c5c5c5;
+    box-shadow: 10px 10px 5px grey;
+    padding: 3rem;
+}
+
+.header_container {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.close_button {
+}
+
+.photos_container {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+}
+
+.photos_container > * {
+
+}
+
+.photos_container > img {
+    width: 200px;
+}

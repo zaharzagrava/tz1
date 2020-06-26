@@ -1,0 +1,26 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+.TODOsSlider {
+    position: absolute;
+    text-align: center;
+    right: 0%;
+    top: 0%;
+    right: 0%;
+    height: 100%;
+    width: 15%;
+    background-color: #c5c5c5;
+    box-shadow: 10px 10px 5px grey;
+    padding: 1rem;
+    font-size: 0.875rem;
+
+
+    overflow-y: scroll;
+}
+
+.todo {
+    margin: 1rem;
+}
+
+p {
+    margin: 0.5rem;
+}

@@ -1,0 +1,12 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+    width: 100%;
+    background-color: #F5F7F7;
+}
