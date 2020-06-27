@@ -3,6 +3,9 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom'
 import Slider from "react-slick"
 
+import tick1 from './tick1.png';
+import cross1 from './cross1.png';
+
 import styles from './TODOsSlider.module.scss';
 import {TodosAC} from '../../redux/Todos'
 
@@ -12,7 +15,7 @@ class CustomSlide extends React.Component {
         <div className={styles.todo}>
             <p>{this.props.userId}</p>
             <p>{this.props.title}</p>
-            <p>{this.props.completed.toString()}</p>
+            <p>{(this.props.completed) ? <img width='20px' src={tick1}/> : <img width='20px' src={cross1}/>}</p>
         </div>
       );
     }
@@ -64,7 +67,7 @@ class TODOsSlider extends React.Component
                             key={index}
                             userId={todo.userId}
                             title={todo.title}
-                            completed={todo.completed.toString()} />
+                            completed={todo.completed} />
                     );
             })}
             </Slider>
