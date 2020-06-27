@@ -6,6 +6,8 @@ import thunk from 'redux-thunk';
 import {BrowserRouter} from 'react-router-dom';
 
 import './index.scss';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import RootReducer from './redux/';
@@ -22,11 +24,9 @@ const store = createStore(RootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </React.StrictMode>
   </Provider>,
   document.getElementById('root')
 );

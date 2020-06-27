@@ -1,26 +1,51 @@
-@import "../../../node_modules/bootstrap/scss/bootstrap";
+// @import "../../../node_modules/bootstrap/scss/bootstrap";
 
 .TODOsSlider {
     position: absolute;
     text-align: center;
     right: 0%;
     top: 0%;
-    right: 0%;
-    height: 100%;
     width: 15%;
     background-color: #c5c5c5;
     box-shadow: 10px 10px 5px grey;
-    padding: 1rem;
+    padding: 0.5rem;
     font-size: 0.875rem;
+}
 
-
-    overflow-y: scroll;
+.todo_list {
+    // height: 800px;
 }
 
 .todo {
-    margin: 1rem;
+    display: inline-block;
+    width: 100%;
+    border: 2px solid black;
 }
 
-p {
+.todo p {
     margin: 0.5rem;
 }
+
+
+  .button_slide {
+      margin: 0.5rem;
+  }
+ 
+// .slides .slick-prev,
+// .slides .slick-next {
+//   position: absolute;
+//   z-index: 1;
+// }
+
+
+// .slides {
+//   position: relative;
+// }
+
+// .slides .slick-prev {
+//   left: 5%;
+// }
+
+// .slides .slick-next {
+//   right: 5%;
+// }

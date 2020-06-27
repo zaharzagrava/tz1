@@ -1,16 +1,38 @@
 import React, { useState, setState, useEffect } from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom'
+import Slider from "react-slick"
 
 import styles from './TODOsSlider.module.scss';
 import {TodosAC} from '../../redux/Todos'
+
+class CustomSlide extends React.Component {
+    render() {
+      return (
+        <div className={styles.todo}>
+            <p>{this.props.userId}</p>
+            <p>{this.props.title}</p>
+            <p>{this.props.completed.toString()}</p>
+        </div>
+      );
+    }
+  }
 
 class TODOsSlider extends React.Component
 {
     constructor () {
         super();
 
+
+        
         this.classes = [styles.TODOsSlider];
+    }
+
+    next() {
+        this.slider.slickNext();
+    }
+    previous() {
+        this.slider.slickPrev();
     }
 
     componentWillMount() {
@@ -18,26 +40,41 @@ class TODOsSlider extends React.Component
     }
 
     render() {
-        
+
+        const settings = {
+            className: styles.todo_list,
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 7,
+            slidesToScroll: 1,
+            arrows: false,
+            vertical: true
+          };
+
         return (
-            <>
-                {(this.props.todosInfo.todos) && 
-                <div className={this.classes.join(' ')}>
-                    {this.props.todosInfo.todos.map((todo, index) => {
-                            return (
-                                <div key={index}>
-                                    <p>{todo.userId}</p>
-                                    <p>{todo.Id}</p>
-                                    <p>{todo.title}</p>
-                                    <p>{todo.completed.toString()}</p>
-                                    <hr></hr>
-                                </div>
-                            );
-                    })}
-                </div>}
-            </>
+        <div className={styles.TODOsSlider}>
+            <button className={styles.button_slide} onClick={this.previous.bind(this)}>
+                &nbsp;&nbsp;&nbsp;UP&nbsp;&nbsp;&nbsp;
+            </button>
+            <Slider ref={c => (this.slider = c)} {...settings}>
+                {this.props.todosInfo.todos.map((todo, index) => {
+                    return (
+                        <CustomSlide
+                            key={index}
+                            userId={todo.userId}
+                            title={todo.title}
+                            completed={todo.completed.toString()} />
+                    );
+            })}
+            </Slider>
+            <button className={styles.button_slide} onClick={this.next.bind(this)}>
+                DOWN
+            </button>
+          </div>
         )
     }
+    
 }
 
 function mapStateToProps(state) {
@@ -53,3 +90,23 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TODOsSlider);
+
+
+// <>
+// {(this.props.todosInfo.todos) && 
+// <div>
+//     <Slider {...settings}>
+        // {this.props.todosInfo.todos.map((todo, index) => {
+        //         return (
+        //             <div key={index}>
+        //                 <p>{todo.userId}</p>
+        //                 <p>{todo.Id}</p>
+        //                 <p>{todo.title}</p>
+        //                 <p>{todo.completed.toString()}</p>
+        //                 <hr></hr>
+        //             </div>
+        //         );
+        // })}
+//     </Slider>
+// </div>}
+// </>
